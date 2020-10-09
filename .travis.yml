@@ -7,27 +7,32 @@ env:
   - SH=bash
   - PACKAGE_VERSION="1.0"
 
+#stages:
+#  - build
+#  - test
+#  - deploy
+
 before_install:
   - gem install prawn -v 2.1.0   # dependance d'asciidoctor
   - gem install asciidoctor      # pour générer votre HTML
   - gem install asciidoctor-pdf --pre # pour générer le PDF
 
-jobs:
-  include:
-    - stage: build
-      name: "Compilation"
-      script: 
-        - gcc main.c -o main
-    - stage: test
-      name: "Unit Tests"
-      script: 
-        - ./main
-    - stage: deploy
-      name: "Deploy to HTML & PDF"
-      script:
-        - mkdir public
-        - asciidoctor README.adoc -o public/index.html
-        - asciidoctor-pdf README.adoc -o public/manuel.pdf
+#jobs:
+  #include:
+    #- stage: build
+     # name: "Compilation"
+script: 
+  - gcc main.c -o main
+    #- stage: test
+    # name: "Unit Tests"
+    # script: 
+  - ./main
+    #- stage: deploy
+    #name: "Deploy to HTML & PDF"
+    #script:
+  - mkdir public
+  - asciidoctor README.adoc -o public/index.html
+  - asciidoctor-pdf README.adoc -o public/manuel.pdf
   
 deploy:
   provider: pages
