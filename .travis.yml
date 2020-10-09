@@ -20,12 +20,13 @@ before_install:
 #jobs:
   #include:
     #- stage: build
-     # name: "Compilation"
+    #name: "Compilation"
+    #script:
 script: 
   - gcc main.c -o main
     #- stage: test
-    # name: "Unit Tests"
-    # script: 
+    #name: "Unit Tests"
+    #script: 
   - ./main
     #- stage: deploy
     #name: "Deploy to HTML & PDF"
@@ -42,4 +43,4 @@ deploy:
   committer-from-gh: true
   local-dir: gh-pages
   on:
-    branch: main
+    branch: master
