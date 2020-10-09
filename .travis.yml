@@ -2,10 +2,6 @@ sudo: required
 
 language: ruby
 
-rvm:
-  - 2.2
-  - jruby
-
 env:
   - RACK_ENV=test
   - SH=bash
